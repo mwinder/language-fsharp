@@ -1,20 +1,31 @@
 namespace Contact
 
-type Contact = 
-    {
-        FirstName: string;
-        MiddleInitial: string;
-        LastName: string;
+type PersonalName = {
+    FirstName: string;
+    MiddleInitial: string option;
+    LastName: string;
+}
 
-        EmailAddress: string;
-        //true if ownership of email address is confirmed
-        IsEmailVerified: bool;
+type EmailContactInfo = {
+    EmailAddress: string;
+    IsEmailVerified: bool;
+}
 
-        Address1: string;
-        Address2: string;
-        City: string;
-        State: string;
-        Zip: string;
-        //true if validated against address service
-        IsAddressValid: bool; 
-    }
+type PostalAddress = {
+    Address1: string;
+    Address2: string;
+    City: string;
+    State: string;
+    Zip: string;
+}
+
+type PostalContactInfo = {
+    Address: PostalAddress;
+    IsAddressValid: bool;
+}
+
+type Contact = {
+    Name: PersonalName;
+    EmailContactInfo: EmailContactInfo;
+    PostalContactInfo: PostalContactInfo;
+}
