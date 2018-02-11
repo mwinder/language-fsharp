@@ -6,17 +6,23 @@ type PersonalName = {
     LastName: string;
 }
 
+type EmailAddress = EmailAddress of string
+
 type EmailContactInfo = {
-    EmailAddress: string;
+    EmailAddress: EmailAddress;
     IsEmailVerified: bool;
 }
+
+type StateCode = StateCode of string
+
+type ZipCode = ZipCode of string
 
 type PostalAddress = {
     Address1: string;
     Address2: string;
     City: string;
-    State: string;
-    Zip: string;
+    State: StateCode;
+    Zip: ZipCode;
 }
 
 type PostalContactInfo = {
