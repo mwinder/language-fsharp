@@ -1,4 +1,4 @@
-namespace Contact
+namespace Contacts
 
 type PersonalName = {
     FirstName: string;
