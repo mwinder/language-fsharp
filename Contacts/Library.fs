@@ -2,34 +2,37 @@ namespace Contacts
 
 open System.Text.RegularExpressions
 
+type CreationResult<'T> = Success of 'T | Error of string
+    
+module EmailAddress =
+    
+    type T = EmailAddress of string
+
+    let create (s:string) =
+        if System.Text.RegularExpressions.Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
+            then Some (EmailAddress s)
+            else None
+
+    let create2 (s:string) = 
+        if System.Text.RegularExpressions.Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
+            then Success (EmailAddress s)
+            else Error "Email address must contain an @ sign"
+
+    let createWithContinuations success failure (s:string) = 
+        if Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
+            then success (EmailAddress s)
+            else failure "Email address must contain an @ sign"
+
 module Types =
-    type CreationResult<'T> = Success of 'T | Error of string
 
     type PersonalName = {
         FirstName: string;
         MiddleInitial: string option;
         LastName: string;
-    }
-
-    type EmailAddress = EmailAddress of string
-
-    let CreateEmailAddress (s:string) =
-        if System.Text.RegularExpressions.Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
-            then Some (EmailAddress s)
-            else None
-
-    let CreateEmailAddress2 (s:string) = 
-        if System.Text.RegularExpressions.Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
-            then Success (EmailAddress s)
-            else Error "Email address must contain an @ sign"
-
-    let CreateEmailAddressWithContinuations success failure (s:string) = 
-        if Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
-            then success (EmailAddress s)
-            else failure "Email address must contain an @ sign"
+    }    
 
     type EmailContactInfo = {
-        EmailAddress: EmailAddress;
+        EmailAddress: EmailAddress.T;
         IsEmailVerified: bool;
     }
 
