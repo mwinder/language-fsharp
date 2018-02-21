@@ -10,6 +10,9 @@ module Program =
         let invalidEmail = CreateEmailAddress "example.com"
         printfn "invalid email: %A" invalidEmail
 
+        let createdEmail = CreateEmailAddress2 "example.com"
+        printfn "created email: %A" createdEmail
+
         let validState = CreateStateCode "CA"
         printfn "valid state: %A" validState
         let invalidState = CreateStateCode "XX"

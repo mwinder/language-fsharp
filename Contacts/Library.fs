@@ -1,6 +1,10 @@
 namespace Contacts
 
+open System.Text.RegularExpressions
+
 module Types =
+    type CreationResult<'T> = Success of 'T | Error of string
+
     type PersonalName = {
         FirstName: string;
         MiddleInitial: string option;
@@ -13,6 +17,16 @@ module Types =
         if System.Text.RegularExpressions.Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
             then Some (EmailAddress s)
             else None
+
+    let CreateEmailAddress2 (s:string) = 
+        if System.Text.RegularExpressions.Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
+            then Success (EmailAddress s)
+            else Error "Email address must contain an @ sign"
+
+    let CreateEmailAddressWithContinuations success failure (s:string) = 
+        if Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
+            then success (EmailAddress s)
+            else failure "Email address must contain an @ sign"
 
     type EmailContactInfo = {
         EmailAddress: EmailAddress;
