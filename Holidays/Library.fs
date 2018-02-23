@@ -2,10 +2,32 @@ namespace Holidays
 
 open NodaTime
 
-type PartOfDay = 
-    | FullDay
-    | HalfDay
-
-type HolidayTime =
+type StartTime =
+    | Start
+    | Middle
     | Time of LocalTime
-    | Part of PartOfDay
+
+type EndTime =
+    | Middle
+    | End
+    | Time of LocalTime
+
+type HolidayStart = {
+    Date: LocalDate
+    Time: StartTime
+}
+
+type HolidayEnd = {
+    Date: LocalDate
+    Time: EndTime
+}
+
+type Holiday = {
+    Start: LocalDate * StartTime
+    End: LocalDate * EndTime
+}
+
+type Holiday2 = {
+    Start: HolidayStart
+    End: HolidayEnd
+}
