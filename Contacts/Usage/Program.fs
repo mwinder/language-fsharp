@@ -11,7 +11,7 @@ module Program =
         printfn "valid email: %A" validEmail
         let invalidEmail = EmailAddress.create "example.com"
         printfn "invalid email: %A" invalidEmail
-        let createdEmail = EmailAddress.create2 "example.com"
+        let createdEmail = EmailAddress.createWithValidation "example.com"
         printfn "created email: %A" createdEmail
 
         let validState = CreateStateCode "CA"

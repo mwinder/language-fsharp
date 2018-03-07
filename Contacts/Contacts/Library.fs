@@ -13,7 +13,7 @@ module EmailAddress =
             then Some (EmailAddress s)
             else None
 
-    let create2 (s:string) = 
+    let createWithValidation (s:string) = 
         if System.Text.RegularExpressions.Regex.IsMatch(s,@"^\S+@\S+\.\S+$") 
             then Success (EmailAddress s)
             else Error "Email address must contain an @ sign"
