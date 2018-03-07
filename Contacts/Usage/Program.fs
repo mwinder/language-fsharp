@@ -1,4 +1,4 @@
-﻿namespace Contacts.Usage
+﻿namespace Usage
 
 open Contacts
 open Contacts.Types
@@ -11,7 +11,6 @@ module Program =
         printfn "valid email: %A" validEmail
         let invalidEmail = EmailAddress.create "example.com"
         printfn "invalid email: %A" invalidEmail
-
         let createdEmail = EmailAddress.create2 "example.com"
         printfn "created email: %A" createdEmail
 
