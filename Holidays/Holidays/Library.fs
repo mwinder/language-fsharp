@@ -1,6 +1,7 @@
 namespace Holidays
 
 open NodaTime
+open System
 
 type StartTime =
     | Start
@@ -22,12 +23,20 @@ type HolidayEnd = {
     Time: EndTime
 }
 
-type Holiday = {
-    Start: LocalDate * StartTime
-    End: LocalDate * EndTime
-}
+//type Holiday = {
+//    Start: LocalDate * StartTime
+//    End: LocalDate * EndTime
+//}
 
-type Holiday2 = {
+type HolidayId = HolidayId of Guid
+
+type HolidayId2 = Guid
+
+type HolidayNotes = string
+
+type HolidayRequest = {
+    Id: HolidayId
     Start: HolidayStart
     End: HolidayEnd
+    Notes: HolidayNotes option
 }
