@@ -1,6 +1,7 @@
 ﻿using Holidays;
 using NodaTime;
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using NodaTime.Serialization.JsonNet;
 using static Holidays.HolidayId;
@@ -36,6 +37,16 @@ namespace CSharpConsumer
 
             Serialisation(holiday);
             Serialisation(holidayRequestTimed);
+
+            Console.WriteLine("#### Vacation ID: ####");
+            var vacationId1 = new VacationId(new Guid("5d82b0a8-81cb-4bd2-8051-33b75a88f781"));
+            var vacationId2 = new VacationId(new Guid("5d82b0a8-81cb-4bd2-8051-33b75a88f781"));
+            Equality(vacationId1, vacationId2);
+
+            Console.WriteLine("#### Person Name: ####");
+            var name1 = new PersonName("John", "Archer");
+            var name2 = new PersonName("Steven", "Gerard");
+            Equality(name1, name2);
         }
 
         private static void Equality(HolidayId holidayId1, HolidayId holidayId2)
@@ -55,5 +66,57 @@ namespace CSharpConsumer
             var settings = new JsonSerializerSettings().ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
             Console.WriteLine(JsonConvert.SerializeObject(holiday, Formatting.Indented, settings));
         }
+
+        private static void Equality(VacationId a, VacationId b)
+        {
+            Console.WriteLine(a.Equals(b));
+            Console.WriteLine(a == b);
+        }
+
+        private static void Equality(PersonName name1, PersonName name2)
+        {
+            Console.WriteLine(name1 == name2);
+        }
+    }
+
+    public class VacationId : IEquatable<VacationId>
+    {
+        private readonly Guid _value;
+
+        public VacationId(Guid value) => _value = value;
+
+        public override bool Equals(object obj) =>
+            Equals(obj as VacationId);
+
+        public bool Equals(VacationId other) => (other == null) ? false :
+            _value == other._value;
+
+        public override int GetHashCode()
+        {
+            return -1939223833 + EqualityComparer<Guid>.Default.GetHashCode(_value);
+        }
+    }
+
+    public class PersonName : IEquatable<PersonName>
+    {
+        private readonly string _first;
+        private readonly string _last;
+
+        public PersonName(string first, string last)
+        {
+            _first = first;
+            _last = last;
+        }
+
+        public bool Equals(PersonName other) => (other == null) ? false :
+            _first == other._first &&
+            _last == other._last;
+
+        public static bool operator==(PersonName a, PersonName b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(PersonName a, PersonName b) => !(a == b);
     }
 }
