@@ -1,6 +1,8 @@
 ﻿using Holidays;
 using NodaTime;
 using System;
+using Newtonsoft.Json;
+using NodaTime.Serialization.JsonNet;
 using static Holidays.HolidayId;
 using static Microsoft.FSharp.Core.FSharpOption<string>;
 
@@ -31,6 +33,9 @@ namespace CSharpConsumer
                 None);
 
             Console.WriteLine(holidayRequestTimed);
+
+            Serialisation(holiday);
+            Serialisation(holidayRequestTimed);
         }
 
         private static void Equality(HolidayId holidayId1, HolidayId holidayId2)
@@ -43,6 +48,12 @@ namespace CSharpConsumer
             Console.WriteLine(holidayIdNull == holidayId1);
             Console.WriteLine(holidayId1.Equals(holidayIdNull));
             //Console.WriteLine(holidayIdNull.Equals(holidayId1)); Fails
+        }
+
+        private static void Serialisation(HolidayRequest holiday)
+        {
+            var settings = new JsonSerializerSettings().ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
+            Console.WriteLine(JsonConvert.SerializeObject(holiday, Formatting.Indented, settings));
         }
     }
 }
