@@ -1,7 +1,9 @@
+.vs/
 bin/
 obj/
 node_modules/
 packages/
+_ReSharper.Caches/
 *.suo
 *.user
-.vs/
+*.orig
