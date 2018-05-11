@@ -1,6 +1,17 @@
 namespace Holidays.Patterns
 
+open System
 open NodaTime
+
+type Step = Step of Period with
+    static member (+) (d:LocalDate, Step period) = d + period
+    static member Zero = Step(Period.Zero)
+    interface IComparable with
+        member __.CompareTo _ = 0
+
+type Span = Span of TimeSpan with
+    static member (+) (d:DateTime, Span s) = d + s
+    static member Zero = Span(TimeSpan.Zero)
 
 module Dates =
     let from (a:LocalDate) days =
@@ -32,7 +43,13 @@ module Dates =
                 yield! rangeRecursive (a.PlusDays(1)) b
         }
 
-    let range = rangeSeqInfinite
+    let private rangeStep a b =
+        [a..Step(Period.FromDays(1))..b]
+
+    let range = rangeStep
+
+    let rangeDt a b =
+        [a..Span(TimeSpan.FromDays(1.0))..b] |> Seq.map LocalDate.FromDateTime
 
 
 type TimePeriod = {
@@ -49,10 +66,6 @@ type PartOfDay =
     | FirstHours of Hours
     | LastHours of Hours
     | TimePeriod
-
-type HolidayDate = Date of LocalDate with
-    static member (+) (d:LocalDate, Date wrapper) = d.PlusDays
-    static member Zero = Date LocalDate.MinIsoValue
 
 type HolidayDay = {
     Date: LocalDate

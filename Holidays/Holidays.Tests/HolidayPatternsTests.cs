@@ -1,7 +1,8 @@
+using System;
 using System.Linq;
-using Xunit;
 using Holidays.Patterns;
 using NodaTime;
+using Xunit;
 using static Holidays.Patterns.Hours;
 using static Holidays.Patterns.PartOfDay;
 
@@ -57,6 +58,12 @@ namespace Holidays.Tests
                 HolidayDay.LastHalf(new LocalDate(2018, 5, 7)),
             }.Union(HolidayDay.DaysFrom(new LocalDate(2018, 5, 8), 4));
             Assert.Equal(5, composite.Count());
+        }
+
+        [Fact]
+        public void RangeDt()
+        {
+            var result = Dates.rangeDt(new DateTime(2018, 5, 14), new DateTime(2018, 5, 18));
         }
     }
 }
