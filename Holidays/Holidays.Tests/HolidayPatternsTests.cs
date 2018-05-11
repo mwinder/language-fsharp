@@ -2,7 +2,6 @@ using System.Linq;
 using Xunit;
 using Holidays.Patterns;
 using NodaTime;
-using static Holidays.Patterns.HolidayDate;
 using static Holidays.Patterns.Hours;
 using static Holidays.Patterns.PartOfDay;
 
@@ -13,9 +12,9 @@ namespace Holidays.Tests
         [Fact]
         public void LongWeekend()
         {
-            var friday = new HolidayDay(NewDate(new LocalDate(2018, 5, 11)), LastHalf);
-            var monday = new HolidayDay(NewDate(new LocalDate(2018, 5, 14)), Whole);
-            var tuesday = new HolidayDay(NewDate(new LocalDate(2018, 5, 15)), Whole);
+            var friday = new HolidayDay(new LocalDate(2018, 5, 11), LastHalf);
+            var monday = new HolidayDay(new LocalDate(2018, 5, 14), Whole);
+            var tuesday = new HolidayDay(new LocalDate(2018, 5, 15), Whole);
 
             var longWeekend = new HolidayPatternRequest(new[] { friday, monday, tuesday });
         }
@@ -25,7 +24,7 @@ namespace Holidays.Tests
         {
             var doctorsAppointment = new HolidayPatternRequest(new[]
             {
-                new HolidayDay(NewDate(new LocalDate(2018, 5, 17)), NewFirstHours(NewHours(2))),
+                new HolidayDay(new LocalDate(2018, 5, 17), NewFirstHours(NewHours(2))),
             });
         }
 

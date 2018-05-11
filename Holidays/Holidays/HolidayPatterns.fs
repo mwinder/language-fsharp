@@ -55,14 +55,14 @@ type HolidayDate = Date of LocalDate with
     static member Zero = Date LocalDate.MinIsoValue
 
 type HolidayDay = {
-    Date: HolidayDate
+    Date: LocalDate
     Part: PartOfDay
 } with
-    static member Whole a = { Date = Date a; Part = Whole }
+    static member Whole a = { Date = a; Part = Whole }
 
-    static member FirstHalf a = { Date = Date a; Part = FirstHalf }
+    static member FirstHalf a = { Date = a; Part = FirstHalf }
 
-    static member LastHalf a = { Date = Date a; Part = LastHalf }
+    static member LastHalf a = { Date = a; Part = LastHalf }
 
     static member FromRange a b = Dates.range a b |> Seq.map HolidayDay.Whole
 
