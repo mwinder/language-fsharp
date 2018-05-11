@@ -17,10 +17,4 @@
     <ProjectReference Include="..\Holidays\Holidays.fsproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="NodaTime">
-      <HintPath>..\..\..\..\.nuget\packages\nodatime\2.2.4\lib\netstandard1.3\NodaTime.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
