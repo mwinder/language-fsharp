@@ -7,9 +7,9 @@
             "label": "build",
             "command": "dotnet build",
             "type": "shell",
-            "group": "build",
-            "presentation": {
-                "reveal": "silent"
+            "group": {
+                "kind": "build",
+                "isDefault": true
             },
             "problemMatcher": "$msCompile"
         },
@@ -20,7 +20,7 @@
             "command": "dotnet test Holidays.Tests",
             "options": {
                 "env": {
-                    "VSTEST_HOST_DEBUG" : "1"
+                    "VSTEST_HOST_DEBUG": "1"
                 }
             },
             "presentation": {
@@ -31,6 +31,5 @@
             },
             "problemMatcher": []
         }
-
     ]
 }
