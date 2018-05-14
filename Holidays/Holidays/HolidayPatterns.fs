@@ -13,6 +13,10 @@ type Span = Span of TimeSpan with
     static member (+) (d:DateTime, Span s) = d + s
     static member Zero = Span(TimeSpan.Zero)
 
+type Day = Day of int with
+    static member (+) (d:LocalDate, Day day) = d.PlusDays day
+    static member Zero = Day(0)
+
 module Dates =
     let from (a:LocalDate) days =
         [0..days-1] |> Seq.map (a.PlusDays)
@@ -44,7 +48,8 @@ module Dates =
         }
 
     let private rangeStep a b =
-        [a..Step(Period.FromDays(1))..b]
+        //[a..Step(Period.FromDays(1))..b]
+        [a..Day(1)..b]
 
     let range = rangeStep
 
