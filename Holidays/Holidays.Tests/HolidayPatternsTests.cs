@@ -37,6 +37,16 @@ namespace Holidays.Tests
         }
 
         [Fact]
+        public void YearOfWeeks()
+        {
+            var week = Dates.rangeWeeks(new LocalDate(2018, 1, 1), new LocalDate(2018, 12, 31));
+            var last = week.Last();
+
+            Assert.Equal(53, week.Count());
+            Assert.Equal(new LocalDate(2018, 12, 31), last);
+        }
+
+        [Fact]
         public void ThreeDays()
         {
             var threeDays = HolidayDay.DaysFrom(new LocalDate(2018, 5, 11), 3);

@@ -17,6 +17,10 @@ type Day = Day of int with
     static member (+) (d:LocalDate, Day day) = d.PlusDays day
     static member Zero = Day(0)
 
+type Week = Week of int with
+    static member (+) (d:LocalDate, Week week) = d.PlusWeeks week
+    static member Zero = Week(0)
+
 module Dates =
     let from (a:LocalDate) days =
         [0..days-1] |> Seq.map (a.PlusDays)
@@ -55,6 +59,12 @@ module Dates =
 
     let rangeDt a b =
         [a..Span(TimeSpan.FromDays(1.0))..b] |> Seq.map LocalDate.FromDateTime
+
+    let rangeDays a b =
+        [a..Day(1)..b]
+
+    let rangeWeeks a b =
+        [a..Week(1)..b]
 
 
 type TimePeriod = {
