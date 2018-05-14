@@ -3,6 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Dates.fs" />
     <Compile Include="HolidayPatterns.fs" />
     <Compile Include="Library.fs" />
     <Compile Include="Duration.fs" />
