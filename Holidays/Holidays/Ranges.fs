@@ -1,7 +1,7 @@
-namespace Holidays
+namespace Holidays.Ranges
 
-open NodaTime
 open System
+open NodaTime
 
 type StartTime =
     | Start
