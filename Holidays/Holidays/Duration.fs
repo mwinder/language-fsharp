@@ -1,4 +1,4 @@
-﻿module Holidays.Duration
+﻿namespace Holidays
 
 type Duration =
     | Days of double

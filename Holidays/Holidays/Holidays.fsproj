@@ -4,9 +4,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Dates.fs" />
+    <Compile Include="Duration.fs" />
     <Compile Include="Patterns.fs" />
     <Compile Include="Library.fs" />
-    <Compile Include="Duration.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NodaTime" Version="2.2.6" />
