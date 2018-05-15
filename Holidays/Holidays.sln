@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpConsumer", "CSharpCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holidays.Tests", "Holidays.Tests\Holidays.Tests.csproj", "{4CD59368-DD7E-46A3-A5EA-1B85152B31D6}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Holidays.FsTests", "Holidays.FsTests\Holidays.FsTests.fsproj", "{3F2786F4-2603-4D78-9B0B-B33A31A7884B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4CD59368-DD7E-46A3-A5EA-1B85152B31D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CD59368-DD7E-46A3-A5EA-1B85152B31D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CD59368-DD7E-46A3-A5EA-1B85152B31D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2786F4-2603-4D78-9B0B-B33A31A7884B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2786F4-2603-4D78-9B0B-B33A31A7884B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2786F4-2603-4D78-9B0B-B33A31A7884B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2786F4-2603-4D78-9B0B-B33A31A7884B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
