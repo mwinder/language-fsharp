@@ -11,6 +11,18 @@
                 "kind": "build",
                 "isDefault": true
             },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "test",
+            "command": "dotnet test",
+            "type": "shell",
+            "group": "test",
             "problemMatcher": "$msCompile"
         },
         {

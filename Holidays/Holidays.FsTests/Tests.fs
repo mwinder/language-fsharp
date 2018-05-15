@@ -15,6 +15,14 @@ module DurationTests =
     let ``subtraction of days`` () =
         Assert.Equal(Days(2.0), Days(4.0) - Days(2.0))
 
+    [<Fact>]
+    let ``scalar multiplication of days`` () =
+        Assert.Equal(Days(4.0), Days(2.0) * 2.0)
+
+    [<Fact>]
+    let ``scalar multiplication commutative`` () =
+        Assert.Equal(Days(2.0) * 2.0, 2.0 * Days(2.0))
+
 module HolidayPatternsTests =
 
     [<Fact>]

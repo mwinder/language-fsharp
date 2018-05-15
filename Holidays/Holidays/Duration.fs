@@ -15,6 +15,8 @@ type Days = Days of double
 with
     static member (+) (Days a, Days b) = Days(a + b)
     static member (-) (Days a, Days b) = Days(a - b)
+    static member (*) (Days a, s) = Days(a * s)
+    static member (*) (s, Days a) = Days(a * s)
 
 type Hours = Hours of double
 with
