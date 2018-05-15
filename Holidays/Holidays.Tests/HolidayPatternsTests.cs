@@ -3,7 +3,7 @@ using System.Linq;
 using Holidays.Patterns;
 using NodaTime;
 using Xunit;
-using static Holidays.Patterns.Hours;
+using static Holidays.Hours;
 using static Holidays.Patterns.PartOfDay;
 
 namespace Holidays.Tests

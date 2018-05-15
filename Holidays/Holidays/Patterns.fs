@@ -8,8 +8,6 @@ type TimePeriod = {
     End: LocalTime
 }
 
-type Hours = Hours of int
-
 type PartOfDay =
     | Whole
     | FirstHalf
