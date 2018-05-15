@@ -13,6 +13,14 @@ namespace Holidays.Tests
         }
 
         [Fact]
+        public void SubtractionDays()
+        {
+            var result = Days.NewDays(4) - Days.NewDays(2);
+
+            Assert.Equal(Days.NewDays(2), result);
+        }
+
+        [Fact]
         public void AdditionDuration()
         {
             Assert.Equal(Duration.NewHours(4), Duration.NewHours(2) + Duration.NewHours(2));
