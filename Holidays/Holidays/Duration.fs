@@ -10,5 +10,4 @@
 
 type Days = Days of double
 with
-    static member (+) (a : Days, b : Days) =
-        match a, b with | Days a, Days b -> Days(a + b) 
+    static member (+) (Days a, Days b) = Days(a + b) 
