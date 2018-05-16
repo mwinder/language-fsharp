@@ -35,4 +35,9 @@ module UnitsOfMeasureTests =
 
     [<Fact>]
     let ``usage of days and hours`` () =
-        Assert.Equal(4<days>, 2<days> + 2<days>);
+        Assert.Equal(4<days>, Units.add 2<days> 2<days>)
+
+    // [<Fact>]
+    // let ``cannot mix units`` () =
+    //     let r = 2<days> + 24<hours>
+    //     Assert.Equal(3<days>, r)

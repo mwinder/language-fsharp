@@ -1,7 +1,11 @@
 ﻿namespace Holidays.UnitsOfMeasure
 
-[<Measure>] 
+[<Measure>]
 type days
 
-[<Measure>] 
+[<Measure>]
 type hours
+
+module Units =
+    let add (a : int<days>) (b : int<days>) =
+        a + b
