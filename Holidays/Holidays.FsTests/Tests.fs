@@ -2,6 +2,7 @@ namespace Holidays.FsTests
 
 open Holidays
 open Holidays.Patterns
+open Holidays.UnitsOfMeasure
 open NodaTime
 open Xunit
 
@@ -29,3 +30,9 @@ module HolidayPatternsTests =
     let ``define a week`` () =
         let week = HolidayDay.FromRange (LocalDate(2018, 5, 14)) (LocalDate(2018, 5, 18))
         Assert.Equal(5, Seq.length week)
+
+module UnitsOfMeasureTests =
+
+    [<Fact>]
+    let ``usage of days and hours`` () =
+        Assert.Equal(4<days>, 2<days> + 2<days>);
