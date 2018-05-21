@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace Holidays.Tests
 {
@@ -27,6 +28,12 @@ namespace Holidays.Tests
             Assert.Equal(Duration.NewDays(4), Duration.NewDays(2) + Duration.NewDays(2));
             Assert.Equal(Duration.NewHours(25), Duration.NewDays(1) + Duration.NewHours(1));
             Assert.Equal(Duration.NewHours(25), Duration.NewHours(1) + Duration.NewDays(1));
+        }
+
+        [Fact]
+        public void NonNegative()
+        {
+            Assert.Throws<Exception>(() => Days.create(-1));
         }
     }
 }
