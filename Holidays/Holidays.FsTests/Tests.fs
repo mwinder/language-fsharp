@@ -24,6 +24,11 @@ module DurationTests =
     let ``scalar multiplication commutative`` () =
         Assert.Equal(Days(2.0) * 2.0, 2.0 * Days(2.0))
 
+    [<Fact>]
+    let ``summation`` () =
+        let total = [Days 1.0; Days 2.0; Days 3.0] |> Seq.sum
+        Assert.Equal(Days 6.0, total)
+
 module HolidayPatternsTests =
 
     [<Fact>]

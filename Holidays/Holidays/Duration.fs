@@ -16,6 +16,7 @@ type Days = Days of double with
     static member (-) (Days a, Days b) = Days(a - b)
     static member (*) (Days a, s) = Days(a * s)
     static member (*) (s, Days a) = Days(a * s)
+    static member Zero = Days 0.0
     static member create(d) =
         if (d < 0.0) then failwith "Days cannot ne negative"
         else Days d
