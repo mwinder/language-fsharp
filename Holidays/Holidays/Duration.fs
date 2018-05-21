@@ -18,7 +18,7 @@ type Days = Days of double with
     static member (*) (s, Days a) = Days(a * s)
     static member Zero = Days 0.0
     static member create(d) =
-        if (d < 0.0) then failwith "Days cannot ne negative"
+        if (d < 0.0) then failwith "Days cannot be negative"
         else Days d
 
 type Hours = Hours of double with
