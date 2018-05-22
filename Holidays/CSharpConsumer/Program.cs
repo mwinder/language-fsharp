@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Holidays;
 using Holidays.Ranges;
 using Newtonsoft.Json;
 using NodaTime;
 using NodaTime.Serialization.JsonNet;
-using static Holidays.Ranges.HolidayId;
+using static Holidays.HolidayId;
 using static Microsoft.FSharp.Core.FSharpOption<string>;
 
 namespace CSharpConsumer

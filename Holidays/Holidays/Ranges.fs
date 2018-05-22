@@ -1,7 +1,7 @@
 namespace Holidays.Ranges
 
-open System
 open NodaTime
+open Holidays
 
 type StartTime =
     | Start
@@ -27,10 +27,6 @@ type HolidayEnd = {
 //    Start: LocalDate * StartTime
 //    End: LocalDate * EndTime
 //}
-
-type HolidayId = HolidayId of Guid
-
-type HolidayId2 = Guid
 
 type HolidayNotes = string
 

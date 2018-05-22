@@ -3,11 +3,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="UnitsOfMeasure.fs" />
+    <Compile Include="Types.fs" />
     <Compile Include="Dates.fs" />
     <Compile Include="Duration.fs" />
+    <Compile Include="UnitsOfMeasure.fs" />
     <Compile Include="Ranges.fs" />
     <Compile Include="Patterns.fs" />
+    <Compile Include="Events.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NodaTime" Version="2.2.6" />

@@ -1,5 +1,6 @@
 namespace Holidays.FsTests
 
+open System
 open Holidays
 open Holidays.Patterns
 open Holidays.UnitsOfMeasure
@@ -35,6 +36,14 @@ module HolidayPatternsTests =
     let ``define a week`` () =
         let week = HolidayDay.FromRange (LocalDate(2018, 5, 14)) (LocalDate(2018, 5, 18))
         Assert.Equal(5, Seq.length week)
+
+module EventsTests =
+
+    [<Fact>]
+    let ``holiday event usage`` () =
+        let requested = Requested(HolidayId (Guid "e27d4fdd-12b8-49bc-bc0e-9216cadca2f7"))
+
+        Assert.True(true)
 
 module UnitsOfMeasureTests =
 
