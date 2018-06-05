@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Holidays.Patterns;
 using NodaTime;
@@ -37,16 +36,6 @@ namespace Holidays.Tests
         }
 
         [Fact]
-        public void YearOfWeeks()
-        {
-            var week = Dates.rangeWeeks(new LocalDate(2018, 1, 1), new LocalDate(2018, 12, 31));
-            var last = week.Last();
-
-            Assert.Equal(53, week.Count());
-            Assert.Equal(new LocalDate(2018, 12, 31), last);
-        }
-
-        [Fact]
         public void ThreeDays()
         {
             var threeDays = HolidayDay.DaysFrom(new LocalDate(2018, 5, 11), 3);
@@ -68,12 +57,6 @@ namespace Holidays.Tests
                 HolidayDay.LastHalf(new LocalDate(2018, 5, 7)),
             }.Union(HolidayDay.DaysFrom(new LocalDate(2018, 5, 8), 4));
             Assert.Equal(5, composite.Count());
-        }
-
-        [Fact]
-        public void RangeDt()
-        {
-            var result = Dates.rangeDt(new DateTime(2018, 5, 14), new DateTime(2018, 5, 18));
         }
     }
 }
