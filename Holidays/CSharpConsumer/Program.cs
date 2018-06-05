@@ -26,47 +26,63 @@ namespace CSharpConsumer
                 new HolidayEnd(new LocalDate(2018, 03, 1), EndTime.End),
                 None);
 
-            Console.WriteLine(holiday);
-
             var holidayRequestTimed = new HolidayRequest(
                 holidayId2,
                 new HolidayStart(new LocalDate(2018, 03, 01), StartTime.NewTime(new LocalTime(9, 00))),
                 new HolidayEnd(new LocalDate(2018, 03, 1), EndTime.NewTime(new LocalTime(17, 00))),
                 None);
 
-            Console.WriteLine(holidayRequestTimed);
+            ToString(holiday);
+            ToString(holidayRequestTimed);
 
             Serialisation(holiday);
             Serialisation(holidayRequestTimed);
 
-            Console.WriteLine("#### Vacation ID: ####");
+
             var vacationId1 = new VacationId(new Guid("5d82b0a8-81cb-4bd2-8051-33b75a88f781"));
             var vacationId2 = new VacationId(new Guid("5d82b0a8-81cb-4bd2-8051-33b75a88f781"));
             Equality(vacationId1, vacationId2);
         }
 
-        private static void Equality(HolidayId holidayId1, HolidayId holidayId2)
+        private static void Equality(HolidayId a, HolidayId b)
         {
-            Console.WriteLine(holidayId1 == holidayId2);
-            Console.WriteLine(holidayId1.Equals(holidayId2));
+            Console.WriteLine("HolidayId equality...");
+            Console.WriteLine($"== -> {a == b}");
+            Console.WriteLine($".Equals -> {a.Equals(b)}");
 
             HolidayId holidayIdNull = null;
-            Console.WriteLine(holidayId1 == holidayIdNull);
-            Console.WriteLine(holidayIdNull == holidayId1);
-            Console.WriteLine(holidayId1.Equals(holidayIdNull));
-            //Console.WriteLine(holidayIdNull.Equals(holidayId1)); Fails
+            Console.WriteLine($"== null -> {a == holidayIdNull}");
+            Console.WriteLine($"null == -> {holidayIdNull == a}");
+            Console.WriteLine($".Equals(null) -> {a.Equals(holidayIdNull)}");
+            //Console.WriteLine($"{holidayIdNull.Equals(a)}");
+
+            Console.WriteLine();
+        }
+
+        private static void ToString(HolidayRequest holiday)
+        {
+            Console.WriteLine("HolidayRequest ToString...");
+            Console.WriteLine(holiday);
+
+            Console.WriteLine();
         }
 
         private static void Serialisation(HolidayRequest holiday)
         {
+            Console.WriteLine("HolidayRequest serialisation...");
             var settings = new JsonSerializerSettings().ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
             Console.WriteLine(JsonConvert.SerializeObject(holiday, Formatting.Indented, settings));
+
+            Console.WriteLine();
         }
 
         private static void Equality(VacationId a, VacationId b)
         {
+            Console.WriteLine("VacationId equality...");
             Console.WriteLine(a.Equals(b));
             Console.WriteLine(a == b);
+
+            Console.WriteLine();
         }
     }
 
