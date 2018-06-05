@@ -2,6 +2,7 @@ namespace Holidays.FsTests
 
 open System
 open Holidays
+open Holidays.Events
 open Holidays.Patterns
 open Holidays.UnitsOfMeasure
 open NodaTime
