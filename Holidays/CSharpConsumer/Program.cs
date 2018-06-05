@@ -76,11 +76,9 @@ namespace CSharpConsumer
 
         public VacationId(Guid value) => _value = value;
 
-        public override bool Equals(object obj) =>
-            Equals(obj as VacationId);
+        public override bool Equals(object obj) => Equals(obj as VacationId);
 
-        public bool Equals(VacationId other) => (other == null) ? false :
-            _value == other._value;
+        public bool Equals(VacationId other) => (other != null) && _value == other._value;
 
         public override int GetHashCode()
         {
