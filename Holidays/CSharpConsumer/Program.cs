@@ -15,19 +15,20 @@ namespace CSharpConsumer
         static void Main(string[] args)
         {
             var holidayId1 = NewHolidayId(new Guid("973e16ed-71de-4609-a631-d19918f3e2ea"));
-
             var holidayId2 = NewHolidayId(new Guid("973e16ed-71de-4609-a631-d19918f3e2ea"));
+            var holidayId3 = NewHolidayId(new Guid("351433d0-bc7f-4457-8fb6-f49d5e6a7336"));
 
             Equality(holidayId1, holidayId2);
+            Equality(holidayId1, holidayId3);
 
             var holiday = new HolidayRequest(
-                holidayId1,
+                NewHolidayId(new Guid("7ef9f8ed-d810-4f53-b2aa-fe98b791b71e")),
                 new HolidayStart(new LocalDate(2018, 03, 01), StartTime.Start),
                 new HolidayEnd(new LocalDate(2018, 03, 1), EndTime.End),
                 None);
 
             var holidayRequestTimed = new HolidayRequest(
-                holidayId2,
+                NewHolidayId(new Guid("79b5d089-2930-4d75-bd8c-6312137c01d4")),
                 new HolidayStart(new LocalDate(2018, 03, 01), StartTime.NewTime(new LocalTime(9, 00))),
                 new HolidayEnd(new LocalDate(2018, 03, 1), EndTime.NewTime(new LocalTime(17, 00))),
                 None);
