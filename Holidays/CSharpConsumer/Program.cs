@@ -43,11 +43,6 @@ namespace CSharpConsumer
             var vacationId1 = new VacationId(new Guid("5d82b0a8-81cb-4bd2-8051-33b75a88f781"));
             var vacationId2 = new VacationId(new Guid("5d82b0a8-81cb-4bd2-8051-33b75a88f781"));
             Equality(vacationId1, vacationId2);
-
-            Console.WriteLine("#### Person Name: ####");
-            var name1 = new PersonName("John", "Archer");
-            var name2 = new PersonName("Steven", "Gerard");
-            Equality(name1, name2);
         }
 
         private static void Equality(HolidayId holidayId1, HolidayId holidayId2)
@@ -73,11 +68,6 @@ namespace CSharpConsumer
             Console.WriteLine(a.Equals(b));
             Console.WriteLine(a == b);
         }
-
-        private static void Equality(PersonName name1, PersonName name2)
-        {
-            Console.WriteLine(name1 == name2);
-        }
     }
 
     public class VacationId : IEquatable<VacationId>
@@ -96,28 +86,5 @@ namespace CSharpConsumer
         {
             return -1939223833 + EqualityComparer<Guid>.Default.GetHashCode(_value);
         }
-    }
-
-    public class PersonName : IEquatable<PersonName>
-    {
-        private readonly string _first;
-        private readonly string _last;
-
-        public PersonName(string first, string last)
-        {
-            _first = first;
-            _last = last;
-        }
-
-        public bool Equals(PersonName other) => (other == null) ? false :
-            _first == other._first &&
-            _last == other._last;
-
-        public static bool operator==(PersonName a, PersonName b)
-        {
-            return a.Equals(b);
-        }
-
-        public static bool operator !=(PersonName a, PersonName b) => !(a == b);
     }
 }
